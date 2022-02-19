@@ -1,0 +1,20 @@
+// 指定protobuf的版本，proto3是最新的语法版本
+syntax = "proto3";
+
+option go_package="./;microdemo";
+
+// 定义一个叫HelloService的服务
+service HelloService {
+  // 定义一个叫SayHello的方法，这个方法接受HelloRequest消息作为参数，返回HelloResponse消息
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+// 定义HelloRequest消息
+message HelloRequest {
+  string name = 1;
+}
+
+// 定义HelloResponse消息
+message HelloResponse {
+  string message = 1;
+}
